@@ -1,0 +1,27 @@
+<div class="container">
+    <div class=" row">
+        <div class="col-10 offset-1">
+            <h2>Listado completo empleados</h2>
+
+
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Salario</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let empleado of empleados">
+                        <td>{{ empleado.id }}</td>
+                        <td>{{ empleado.employee_name }}</td>
+                        <td>{{ empleado.employee_salary }}</td>
+                        <td>{{ empleado.employee_age }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

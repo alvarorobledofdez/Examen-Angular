@@ -1,0 +1,55 @@
+<div class="container">
+    <h2>Inserte datos</h2>
+    <form (submit)="verListadoUnico(empleadoArray.id, ipc)" #formulario="ngForm" class="form">
+        <div class="form-group row">
+            <label for="id" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-10">
+                <input type="text" id="id" name="id" autocomplete="off" required #id="ngModel"
+                    [(ngModel)]="empleadoArray.id"><br>
+
+                <div *ngIf="id.invalid && (id.dirty || id.touched)">
+                    <div *ngIf="id.errors.required">
+                        El id es obligatorio
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <label for="ipc" class="col-sm-2 col-form-label">IPC</label>
+            <div class="col-sm-10">
+                <input type="text" id="ipc" name="ipc" autocomplete="off" [(ngModel)]="ipc"><br>
+
+            </div>
+
+
+            <button class="btn btn-primary" type="submit" [disabled]="!formulario.form.valid">Calcular</button>
+        </div>
+    </form>
+
+
+    <div class=" row"  *ngIf="empleadoArray.employee_salary != null">
+        <div class="col-10 offset-1">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Salario</th>
+                        <th>Edad</th>
+                        <th>Salario Ipc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ empleadoArray.id }}</td>
+                        <td>{{ empleadoArray.employee_name }}</td>
+                        <td>{{ empleadoArray.employee_salary }}</td>
+                        <td>{{ empleadoArray.employee_age }}</td>
+                        <td>{{ sueldo }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
